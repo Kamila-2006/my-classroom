@@ -8,6 +8,7 @@ class Assignment(models.Model):
     description = models.TextField()
     deadline = models.DateField()
     max_score = models.PositiveIntegerField()
+    posted_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.name} (сдать до: {self.deadline})"

@@ -20,7 +20,6 @@ class User(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.password.startswith('pbkdf2_sha256$'):
-            self.clean()
             self.password = make_password(self.password)
         super().save(*args, **kwargs)
 

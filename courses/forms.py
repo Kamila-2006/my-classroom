@@ -24,6 +24,7 @@ class CourseForm(forms.ModelForm):
                 'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             }),
             'start_date': forms.DateInput(attrs={
+                'type': 'date',
                 'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             }),
             'duration': forms.NumberInput(attrs={
