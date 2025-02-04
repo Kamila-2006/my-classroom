@@ -50,3 +50,13 @@ class UpdateCourseView(View):
             'course': course
         }
         return render(request, 'courses/course-form.html', ctx)
+
+class CourseDeleteView(View):
+    def get(self, request, pk):
+        course = get_object_or_404(Course, pk=pk)
+        ctx = {'course':course}
+        return render(request, 'courses/course-delete-confirm.html', ctx)
+    def post(self, request, pk):
+        course = get_object_or_404(Course, pk=pk)
+        course.delete()
+        return redirect('courses:list')

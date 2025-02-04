@@ -57,3 +57,13 @@ class UserUpdateView(View):
             'form': form
         }
         return render(request, 'users/users-form.html', ctx)
+
+class UserDeleteView(View):
+    def get(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        ctx = {'user':user}
+        return render(request, 'users/users-delete-confirm.html', ctx)
+    def post(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        user.delete()
+        return redirect('users:list')
